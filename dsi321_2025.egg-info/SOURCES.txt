@@ -1,0 +1,6 @@
+README.md
+pyproject.toml
+dsi321_2025.egg-info/PKG-INFO
+dsi321_2025.egg-info/SOURCES.txt
+dsi321_2025.egg-info/dependency_links.txt
+dsi321_2025.egg-info/top_level.txt
