@@ -8,16 +8,20 @@ from pathlib import Path
 import pandas as pd
 import re
 import urllib.parse
+from rich.console import Console
+from rich.panel import Panel
 
 # Import modern logging configuration
 from config.logging.modern_log import LoggingConfig
 # Import path configuration
 from config.path_config import AUTH_TWITTER
-
+# Import LakeFS loader
 from src.backend.load.lakefs_loader import LakeFSLoader
-
+# Import validation configuration
+from src.backend.validation.validate import ValidationPydantic, TweetData
 
 logger = LoggingConfig(level="DEBUG", level_console="DEBUG").get_logger()
+console = Console()
 
 def scrape_all_tweet_texts(url: str, max_scrolls: int = 5):
     """
