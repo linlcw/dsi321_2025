@@ -61,15 +61,34 @@ Key capabilities include:
 └── start.sh                        # Startup script for the project
 ```
 
-## Dataset Quality
+## Schema
 
-| Criterion                          |
-| ---------------------------------- |
-| Contains at least 1,000 records    |
-| Covers a full 24-hour time range   |
-| At least 90% data completeness     |
-| No columns with data type 'object' |
-| No duplicate records               |
+This project enforces a strict schema and data validation protocol to ensure data consistency and integrity. Below is the schema and the validation results from the processed dataset (`data.parquet`):
+
+### DataFrame Schema (`df_verlify.dtypes`):
+
+| Column       | Data Type            |
+| ------------ | -------------------- |
+| category     | string[python]       |
+| tag          | string[python]       |
+| username     | string[python]       |
+| tweetText    | string[python]       |
+| timestamp    | datetime64[ns, UTC]  |
+| scrapeTime   | datetime64[ns]       |
+| tweet_link   | string[python]       |
+| index        | int64                |
+| year         | int32                |
+| month        | int32                |
+| day          | int32                |
+
+## Dataset Quality
+| | |
+| - | :- |
+| Contains at least 1,000 records    | Pass✅   |
+| Covers a full 24-hour time range   | Pass✅   |
+| At least 90% data completeness     | Pass✅   |
+| No columns with data type 'object' | Pass✅   |
+| No duplicate records               | Pass✅   |
 
 ## Benefits
 
