@@ -1,7 +1,7 @@
+data/lakefs/
+
 config/auth/
 tmp/
-data/
-src/backend/config/
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
