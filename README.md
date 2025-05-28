@@ -6,10 +6,10 @@ This project monitors and analyzes public discussions about Thammasat University
 
 Key capabilities include:
 
-* Real-time scraping of social media posts and news articles mentioning TU
-* NLP processing to extract and display significant terms
-* Visualization using word clouds
-* CI/CD integrations to ensure data quality and maintain code security
+- Real-time scraping of social media posts and news articles mentioning TU
+- NLP processing to extract and display significant terms
+- Visualization using word clouds
+- CI/CD integrations to ensure data quality and maintain code security
 
 ## Tools Used
 
@@ -65,7 +65,8 @@ Key capabilities include:
 
 This project enforces a strict schema and data validation protocol to ensure data consistency and integrity. Below is the schema and the validation results from the processed dataset (`data.parquet`):
 
-### DataFrame Schema (`df_verlify.dtypes`):
+### DataFrame Schema 
+(`df_verlify.dtypes`):
 
 | Column       | Data Type            |
 | ------------ | -------------------- |
@@ -81,7 +82,55 @@ This project enforces a strict schema and data validation protocol to ensure dat
 | month        | int32                |
 | day          | int32                |
 
-## Dataset Quality
+### Data Type Comparison
+(`df.dtypes == df_verlify.dtypes`)
+
+| Column      | Match |
+|-------------|-------|
+| category    | True |
+| tag         | True |
+| username    | True |
+| tweetText   | True |
+| timestamp   | True |
+| scrapeTime  | True |
+| tweet_link  | True |
+| index       | True |
+| year        | True |
+| month       | True |
+| day         | True |
+
+### Record Count Check 
+(`len(df_verlify) > 1000`)
+
+> ✅ **Result: True**  
+> The dataset contains more than 1,000 records
+
+### Duplicate Records Check 
+(`df_verlify.duplicated().sum()`)
+
+> ✅ **Result: 0**  
+> No duplicate records found in the dataset
+
+### Null Values Check 
+(`df_verlify.isnull().sum()`)
+
+| Column      | Null Count |
+|-------------|------------|
+| category    | 0          |
+| tag         | 0          |
+| username    | 0          |
+| tweetText   | 0          |
+| timestamp   | 0          |
+| scrapeTime  | 0          |
+| tweet_link  | 0          |
+| index       | 0          |
+| year        | 0          |
+| month       | 0          |
+| day         | 0          |
+
+> ✅ **Result:** No null values in any columns
+
+### Dataset Quality
 | | |
 | - | :- |
 | Contains at least 1,000 records    | Pass✅   |
@@ -89,6 +138,7 @@ This project enforces a strict schema and data validation protocol to ensure dat
 | At least 90% data completeness     | Pass✅   |
 | No columns with data type 'object' | Pass✅   |
 | No duplicate records               | Pass✅   |
+
 
 ## Benefits
 
